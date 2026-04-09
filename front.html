@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Azure Focus - To-Do List</title>
+<!-- Load Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Load Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#0052FF', // Custom color from Design System
+              dark: '#003eb3',
+            },
+            midnight: {
+              900: '#0a0a0c', // Darkest background
+              800: '#121214', // Card background
+              700: '#1c1c1f', // Input/hover states
+              600: '#2a2a2e',
+            }
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px', // Roundness: ROUND_EIGHT
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #0a0a0c;
+      color: #ffffff;
+    }
+    .text-gradient {
+      background: linear-gradient(to right, #ffffff 60%, #0052FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+<!-- BEGIN: MainContainer -->
+<main class="w-full max-w-4xl flex flex-col items-center space-y-12">
+<!-- BEGIN: PageHeader -->
+<header class="text-center space-y-4" data-purpose="hero-header">
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">
+        Design your <span class="text-brand">intent.</span>
+</h1>
+<p class="text-gray-400 text-lg md:text-xl font-medium">
+        Structure the chaos of the day into a symphony of progress.
+      </p>
+</header>
+<!-- END: PageHeader -->
+<!-- BEGIN: TodoCard -->
+<section class="bg-midnight-800 w-full max-w-2xl rounded-custom border border-midnight-700 shadow-2xl p-8 md:p-12" data-purpose="todo-list-card">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+        To-Do List 📝
+      </h2>
+<!-- BEGIN: TaskInputArea -->
+<div class="relative mb-12" data-purpose="task-creation">
+<div class="flex items-center bg-midnight-700 rounded-full p-1.5 focus-within:ring-2 focus-within:ring-brand transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 px-6 py-3 text-gray-200 placeholder-gray-500 text-lg" data-purpose="new-task-input" placeholder="Add your task" type="text"/>
+<button class="bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-full font-bold transition-colors" data-purpose="add-button">
+            Add
+          </button>
+</div>
+</div>
+<!-- END: TaskInputArea -->
+<!-- BEGIN: TaskList -->
+<ul class="space-y-8" data-purpose="active-tasks-list">
+<!-- Task Item 1 -->
+<li class="flex items-center justify-between group" data-purpose="task-item">
+<div class="flex flex-col">
+<span class="text-lg font-medium text-gray-200">Finalize Blueprint schematics</span>
+<span class="text-sm text-gray-500">Project: Midnight Tower</span>
+</div>
+<div class="flex items-center space-x-6 text-gray-600">
+<button aria-label="Mark Complete" class="hover:text-green-500 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Delete Task" class="hover:text-red-500 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</li>
+<!-- Task Item 2 -->
+<li class="flex items-center justify-between group" data-purpose="task-item">
+<div class="flex flex-col">
+<span class="text-lg font-medium text-gray-200">Morning review of nocturnal logs</span>
+<span class="text-sm text-gray-500">System Audit</span>
+</div>
+<div class="flex items-center space-x-6 text-gray-600">
+<button aria-label="Mark Complete" class="hover:text-green-500 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Delete Task" class="hover:text-red-500 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</li>
+<!-- Task Item 3 -->
+<li class="flex items-center justify-between group" data-purpose="task-item">
+<div class="flex flex-col">
+<span class="text-lg font-medium text-gray-200">Define the visual tonal depth palette</span>
+<span class="text-sm text-gray-500">Design System</span>
+</div>
+<div class="flex items-center space-x-6 text-gray-600">
+<button aria-label="Mark Complete" class="hover:text-green-500 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Delete Task" class="hover:text-red-500 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</li>
+</ul>
+<!-- END: TaskList -->
+</section>
+<!-- END: TodoCard -->
+</main>
+<!-- END: MainContainer -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="ui-interactions">
+    // Minimal interaction placeholder to demonstrate button states
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const purpose = button.getAttribute('data-purpose');
+        if (purpose === 'add-button') {
+          const input = document.querySelector('[data-purpose="new-task-input"]');
+          if (input.value.trim()) {
+            console.log('Adding task:', input.value);
+            input.value = '';
+          }
+        }
+      });
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+</body></html>
